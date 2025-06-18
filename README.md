@@ -1,6 +1,6 @@
 # 🎬 MovieFlix – React Native Movie Explorer App
 
-MovieFlix is a beautifully designed mobile application built using React Native and Expo, inspired by the user experience of Netflix. It fetches and displays popular, trending, and upcoming movies in a visually engaging card-based layout. Users can tap on a movie to view detailed information including title, synopsis, release date, and IMDb rating.
+MovieFlix is a beautifully designed mobile application built using React Native and Expo, inspired by the Netflix experience. It fetches and displays popular, trending, and upcoming movies in an interactive card-based layout. Users can tap a movie to view detailed information including its title, synopsis, release date, and IMDb rating.
 
 ---
 
@@ -14,11 +14,11 @@ MovieFlix is a beautifully designed mobile application built using React Native 
 
 ## 🚀 Features
 
-- 🎥 **Browse Movies** – Scrollable cards with movie posters and titles
-- 🔍 **Search Functionality** – Search for movies using custom search bar
-- 📖 **Movie Details View** – Tap a movie card to reveal full details including IMDb rating
-- 💅 **Modern UI** – Styled using Tailwind CSS via NativeWind with support for dark theme
-- 📡 **API Integration** – Fetches live data from The Movie Database (TMDb) or custom movie API
+- 🎥 **Browse Movies** – Scrollable cards with posters and movie titles
+- 🔍 **Search Functionality** – Instantly search for movies using a custom search bar
+- 📖 **Movie Details View** – See full movie information including IMDb rating
+- 💅 **Modern UI** – Styled with Tailwind CSS using NativeWind, optimized for dark mode
+- 📡 **API Integration** – Fetches live movie data using The Movie Database (TMDb) API
 
 ---
 
@@ -26,9 +26,9 @@ MovieFlix is a beautifully designed mobile application built using React Native 
 
 - [React Native](https://reactnative.dev/)
 - [Expo](https://expo.dev/)
-- [NativeWind](https://www.nativewind.dev/) (Tailwind CSS for React Native)
-- [TMDb API](https://developer.themoviedb.org/) *(or your movie API)*
-- [TypeScript](https://www.typescriptlang.org/) (if applicable)
+- [NativeWind](https://www.nativewind.dev/)
+- [TMDb API](https://developer.themoviedb.org/)
+- [TypeScript](https://www.typescriptlang.org/) *(optional if used)*
 
 ---
 
@@ -36,47 +36,11 @@ MovieFlix is a beautifully designed mobile application built using React Native 
 
 ```bash
 mobile_movie_app/
-├── app/                  # Screens for each route (expo-router)
+├── app/                  # Screens & routes (Expo Router)
 ├── components/           # Reusable UI components (e.g., SearchBar, MovieCard)
-├── constants/            # Images, icons, colors
-├── services/             # API and hooks (useFetch)
-├── assets/               # Fonts, images
-├── tailwind.config.js    # Tailwind/NativeWind config
-├── App.tsx               # Entry point
+├── constants/            # Icons, images, and color definitions
+├── services/             # API functions and custom hooks
+├── assets/               # Static assets like fonts and screenshots
+├── tailwind.config.js    # Tailwind/NativeWind configuration
+├── App.tsx               # App entry point
 └── ...
-
-## 🔧 Getting Started
-git clone https://github.com/skandalk15/MovieFlix.git
-cd MovieFlix
-
-2. Install dependencies
-npm install
-
-3.  Start the development server
-npx expo start
-
-🌐 API Setup
-
-Update your .env or config file with your API key:
-
-TMDB_API_KEY=your_api_key_here
-
-📦 Coming Soon
-
-🔐 User authentication (Login/Register)
-💾 Local favorites storage
-🌓 Dark/light theme toggle
-🧠 Recommendation engine
-
-
-🤝 Contributing
-
-Pull requests are welcome! For major changes, please open an issue first to discuss what you'd like to change.
-
-🙋‍♂️ Author
-
-Soham Kandalkar
-📧 LinkedIn • ✉️ skandalk@usc.edu
-
-
-
