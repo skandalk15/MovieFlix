@@ -1,50 +1,46 @@
-# Welcome to your Expo app 👋
+# 🎬 MovieFlix – React Native Movie Explorer App
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+MovieFlix is a beautifully designed mobile application built using React Native and Expo, inspired by the Netflix experience. It fetches and displays popular, trending, and upcoming movies in an interactive card-based layout. Users can tap a movie to view detailed information including its title, synopsis, release date, and IMDb rating.
 
-## Get started
+---
 
-1. Install dependencies
+## 📱 Screenshots
 
-   ```bash
-   npm install
-   ```
+| Home Screen | Movie Details |
+|-------------|----------------|
+| ![Home](./assets/screenshots/home.png) | ![Details](./assets/screenshots/details.png) |
 
-2. Start the app
+---
 
-   ```bash
-   npx expo start
-   ```
+## 🚀 Features
 
-In the output, you'll find options to open the app in a
+- 🎥 **Browse Movies** – Scrollable cards with posters and movie titles
+- 🔍 **Search Functionality** – Instantly search for movies using a custom search bar
+- 📖 **Movie Details View** – See full movie information including IMDb rating
+- 💅 **Modern UI** – Styled with Tailwind CSS using NativeWind, optimized for dark mode
+- 📡 **API Integration** – Fetches live movie data using The Movie Database (TMDb) API
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+---
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+## 🛠️ Built With
 
-## Get a fresh project
+- [React Native](https://reactnative.dev/)
+- [Expo](https://expo.dev/)
+- [NativeWind](https://www.nativewind.dev/)
+- [TMDb API](https://developer.themoviedb.org/)
+- [TypeScript](https://www.typescriptlang.org/) *(optional if used)*
 
-When you're ready, run:
+---
+
+## 📂 Folder Structure
 
 ```bash
-npm run reset-project
-```
-
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
-
-## Learn more
-
-To learn more about developing your project with Expo, look at the following resources:
-
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
-
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+mobile_movie_app/
+├── app/                  # Screens & routes (Expo Router)
+├── components/           # Reusable UI components (e.g., SearchBar, MovieCard)
+├── constants/            # Icons, images, and color definitions
+├── services/             # API functions and custom hooks
+├── assets/               # Static assets like fonts and screenshots
+├── tailwind.config.js    # Tailwind/NativeWind configuration
+├── App.tsx               # App entry point
+└── ...
