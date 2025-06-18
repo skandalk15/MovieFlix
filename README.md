@@ -45,7 +45,7 @@ mobile_movie_app/
 ├── App.tsx               # Entry point
 └── ...
 
-🔧 Getting Started
+## 🔧 Getting Started
 git clone https://github.com/skandalk15/MovieFlix.git
 cd MovieFlix
 
