@@ -8,7 +8,7 @@ MovieFlix is a beautifully designed mobile application built using React Native 
 
 | Home Screen | Search Screen |
 |-------------|----------------|
-| ![Home](./assets/screenshots/Home.png) | ![Search](./assets/screenshots/Search.png) |
+| ![Home](./assets/screenshots/Home_MovieFlix.png) | ![Search](./assets/screenshots/Search_MovieFlix.png) |
 
 ---
 
