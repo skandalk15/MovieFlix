@@ -6,6 +6,7 @@ import React, { useState, useEffect } from 'react';
 import { View, Text, StyleSheet, Image, FlatList, ActivityIndicator } from 'react-native';
 import useFetch from '@/services/useFetch';
 import { fetchMovies } from '@/services/api';
+import updateSearchCount from '@/services/appwrite';
 
 const Search = () => {
   const [searchQuery, setSearchQuery] = useState('');
@@ -30,6 +31,12 @@ const Search = () => {
     }, 500);
     return () => clearTimeout(timeOutId);
   }, [searchQuery]);
+
+  useEffect(() => {
+    if (searchQuery.trim() && movies?.length > 0) {
+      updateSearchCount(searchQuery, movies[0]);
+    }
+  }, [movies]);
 
   return (
     < View className='flex-1 bg-primary' >
