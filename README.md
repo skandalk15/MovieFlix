@@ -45,7 +45,7 @@ mobile_movie_app/
 ├── App.tsx               # Entry point
 └── ...
 
-**🔧** **Getting Started**
+🔧 Getting Started
 git clone https://github.com/skandalk15/MovieFlix.git
 cd MovieFlix
 
@@ -55,13 +55,13 @@ npm install
 3.  Start the development server
 npx expo start
 
-**🌐** **API Setup**
+🌐 API Setup
 
 Update your .env or config file with your API key:
 
 TMDB_API_KEY=your_api_key_here
 
-**📦** **Coming Soon**
+📦 Coming Soon
 
 🔐 User authentication (Login/Register)
 💾 Local favorites storage
@@ -69,11 +69,11 @@ TMDB_API_KEY=your_api_key_here
 🧠 Recommendation engine
 
 
-**🤝 Contributing**
+🤝 Contributing
 
 Pull requests are welcome! For major changes, please open an issue first to discuss what you'd like to change.
 
-**🙋‍♂️ Author**
+🙋‍♂️ Author
 
 Soham Kandalkar
 📧 LinkedIn • ✉️ skandalk@usc.edu
