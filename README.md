@@ -1,50 +1,82 @@
-# Welcome to your Expo app 👋
+# 🎬 MovieFlix – React Native Movie Explorer App
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+MovieFlix is a beautifully designed mobile application built using React Native and Expo, inspired by the user experience of Netflix. It fetches and displays popular, trending, and upcoming movies in a visually engaging card-based layout. Users can tap on a movie to view detailed information including title, synopsis, release date, and IMDb rating.
 
-## Get started
+---
 
-1. Install dependencies
+## 📱 Screenshots
 
-   ```bash
-   npm install
-   ```
+| Home Screen | Movie Details |
+|-------------|----------------|
+| ![Home](./assets/screenshots/home.png) | ![Details](./assets/screenshots/details.png) |
 
-2. Start the app
+---
 
-   ```bash
-   npx expo start
-   ```
+## 🚀 Features
 
-In the output, you'll find options to open the app in a
+- 🎥 **Browse Movies** – Scrollable cards with movie posters and titles
+- 🔍 **Search Functionality** – Search for movies using custom search bar
+- 📖 **Movie Details View** – Tap a movie card to reveal full details including IMDb rating
+- 💅 **Modern UI** – Styled using Tailwind CSS via NativeWind with support for dark theme
+- 📡 **API Integration** – Fetches live data from The Movie Database (TMDb) or custom movie API
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+---
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+## 🛠️ Built With
 
-## Get a fresh project
+- [React Native](https://reactnative.dev/)
+- [Expo](https://expo.dev/)
+- [NativeWind](https://www.nativewind.dev/) (Tailwind CSS for React Native)
+- [TMDb API](https://developer.themoviedb.org/) *(or your movie API)*
+- [TypeScript](https://www.typescriptlang.org/) (if applicable)
 
-When you're ready, run:
+---
+
+## 📂 Folder Structure
 
 ```bash
-npm run reset-project
-```
+mobile_movie_app/
+├── app/                  # Screens for each route (expo-router)
+├── components/           # Reusable UI components (e.g., SearchBar, MovieCard)
+├── constants/            # Images, icons, colors
+├── services/             # API and hooks (useFetch)
+├── assets/               # Fonts, images
+├── tailwind.config.js    # Tailwind/NativeWind config
+├── App.tsx               # Entry point
+└── ...
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+**🔧** **Getting Started**
+git clone https://github.com/skandalk15/MovieFlix.git
+cd MovieFlix
 
-## Learn more
+2. Install dependencies
+npm install
 
-To learn more about developing your project with Expo, look at the following resources:
+3.  Start the development server
+npx expo start
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+**🌐** **API Setup**
 
-## Join the community
+Update your .env or config file with your API key:
 
-Join our community of developers creating universal apps.
+TMDB_API_KEY=your_api_key_here
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+**📦** **Coming Soon**
+
+🔐 User authentication (Login/Register)
+💾 Local favorites storage
+🌓 Dark/light theme toggle
+🧠 Recommendation engine
+
+
+**🤝 Contributing**
+
+Pull requests are welcome! For major changes, please open an issue first to discuss what you'd like to change.
+
+**🙋‍♂️ Author**
+
+Soham Kandalkar
+📧 LinkedIn • ✉️ skandalk@usc.edu
+
+
+
