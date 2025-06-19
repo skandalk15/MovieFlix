@@ -6,7 +6,7 @@ import React, { useState, useEffect } from 'react';
 import { View, Text, StyleSheet, Image, FlatList, ActivityIndicator } from 'react-native';
 import useFetch from '@/services/useFetch';
 import { fetchMovies } from '@/services/api';
-import updateSearchCount from '@/services/appwrite';
+import { updateSearchCount } from '@/services/appwrite';
 
 const Search = () => {
   const [searchQuery, setSearchQuery] = useState('');
