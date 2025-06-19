@@ -2,7 +2,6 @@ import Searchbar from '@/components/SearchBar';
 import { icons } from "@/constants/icons";
 import { images } from "@/constants/images";
 import { TrendingCard } from '@/components/TrendingCard';
-import { Link } from "expo-router";
 import { Text, View, Image, ScrollView, ActivityIndicator, FlatList } from "react-native";
 import { useRouter } from "expo-router";
 import useFetch from '@/services/useFetch';

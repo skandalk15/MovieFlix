@@ -1,10 +1,14 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { icons } from '@/constants/icons';
+import { View, Text, StyleSheet, Image } from 'react-native';
 
 const Profile = () => {
   return (
-    <View>
-      <Text>Profile</Text>
+    <View className='bg-primary flex-1 px-10'>
+      <View className='flex justify-center items-center flex-1 flex-col gap-5'>
+        <Image source={icons.person} className='size-10' tintColor='#Fff' />
+        <Text className='text-base text-gray-500'>Profile</Text>
+      </View>
     </View>
   );
 }
