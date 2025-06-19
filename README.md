@@ -1,6 +1,6 @@
 # 🎬 MovieFlix – React Native Movie Explorer App
 
-MovieFlix is a beautifully designed mobile application built using React Native and Expo, inspired by the Netflix experience. It fetches and displays popular, trending, and upcoming movies in an interactive card-based layout. Users can tap a movie to view detailed information including its title, synopsis, release date, and IMDb rating.
+MovieFlix is a beautifully designed mobile application built using React Native and Expo, inspired by the Netflix experience. It fetches and displays **trending**, and **latest** movies in an interactive card-based layout. Users can tap a movie to view detailed information including its title, synopsis, release date, and IMDb rating.
 
 ---
 
