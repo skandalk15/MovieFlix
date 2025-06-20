@@ -1,7 +1,9 @@
+import { Movie, MovieDetails, SavedMovies, TrendingMovie } from '@/interfaces/interfaces';
 import { Client, Databases, ID, Query } from 'appwrite';
 //  track searches made by user
 const DATABASE_ID = process.env.EXPO_PUBLIC_APPWRITE_DATABASE_ID!;
 const COLLECTION_ID = process.env.EXPO_PUBLIC_APPWRITE_COLLECTION_ID!;
+const SAVED_ID = process.env.EXPO_PUBLIC_APPWRITE_SAVED_COLLECTION_ID!;
 
 const client = new Client()
   .setEndpoint('https://cloud.appwrite.io/v1')
@@ -54,4 +56,40 @@ export const getTrendingMovies = async (): Promise<TrendingMovie[] | undefined> 
     return undefined;
   }
 }
+
+export const saveMovie = async (movie: MovieDetails) => {
+  try {
+    const existing = await database.listDocuments(DATABASE_ID, SAVED_ID, [
+      Query.equal('movie_id', movie.id)
+    ]);
+    if (existing.total > 0) {
+      console.log('Movie already saved');
+      return { status: 'already_saved' };
+    }
+    await database.createDocument(DATABASE_ID, SAVED_ID, ID.unique(), {
+      movie_id: movie.id,
+      title: movie.title,
+      poster_url: `https://image.tmdb.org/t/p/w500${movie.poster_path}`,
+      vote_average: movie.vote_average,
+      release_date: movie.release_date
+    });
+    console.log('Movie Saved');
+    return { status: 'saved' };
+  } catch (err) {
+    console.log(err);
+    return { status: 'error', error: err };
+  }
+}
+
+export const getSavedMovies = async (): Promise<SavedMovies[] | undefined> => {
+  try {
+    const result = await database.listDocuments(DATABASE_ID, SAVED_ID, [
+      Query.orderDesc('$createdAt')
+    ]);
+    return result.documents as unknown as SavedMovies[];
+  } catch (err) {
+    console.log(err);
+    return undefined;
+  }
+};
 

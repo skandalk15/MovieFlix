@@ -1,4 +1,4 @@
-interface Movie {
+export interface Movie {
   id: number;
   title: string;
   adult: boolean;
@@ -23,7 +23,7 @@ interface TrendingMovie {
   poster_url: string;
 }
 
-interface MovieDetails {
+export interface MovieDetails {
   adult: boolean;
   backdrop_path: string | null;
   belongs_to_collection: {
@@ -75,3 +75,12 @@ interface TrendingCardProps {
   movie: TrendingMovie;
   index: number;
 }
+
+export interface SavedMovies {
+  movie_id: number;
+  title: string;
+  poster_url: string;
+  vote_average: number;
+  release_date: string;
+}
+

@@ -3,6 +3,7 @@ import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native';
 import MaskedView from '@react-native-masked-view/masked-view';
 import { images } from '@/constants/images';
+import { TrendingCardProps } from '@/interfaces/interfaces';
 
 export const TrendingCard = ({ movie, index }: TrendingCardProps) => {
   const { movie_id, title, poster_url } = movie;

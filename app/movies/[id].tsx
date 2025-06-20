@@ -1,8 +1,10 @@
 import { icons } from '@/constants/icons';
 import { fetchMovieDetails } from '@/services/api';
+import { saveMovie } from '@/services/appwrite';
 import useFetch from '@/services/useFetch';
 import { router, useLocalSearchParams } from 'expo-router';
-import React from 'react';
+import Toast from 'react-native-toast-message';
+import React, { useState } from 'react';
 import { View, Text, StyleSheet, ScrollView, Image, TouchableOpacity } from 'react-native';
 
 interface MovieInfoProps {
@@ -22,6 +24,39 @@ const MovieInfo = ({ label, value }: MovieInfoProps) => {
 const MovieDetails = () => {
   const { id } = useLocalSearchParams();
   const { data: movie, loading } = useFetch(() => fetchMovieDetails(id as string));
+  const [isSaved, setIsSaved] = useState(false);
+
+  const handleSave = async () => {
+    if (!movie)
+      return;
+    try {
+      const result = await saveMovie(movie);
+      if (result.status === 'already_saved') {
+        Toast.show({
+          type: 'info',
+          text1: 'Already saved ✅',
+        });
+        setIsSaved(true);
+      } else if (result.status === 'saved') {
+        Toast.show({
+          type: 'success',
+          text1: 'Movie saved 🎉',
+        });
+        setIsSaved(true);
+      } else {
+        Toast.show({
+          type: 'error',
+          text1: 'Error saving movie ❌',
+        });
+      }
+    } catch (err) {
+      Toast.show({
+        type: 'error',
+        text1: 'An unexpected error occurred ❌',
+      });
+      console.error(err);
+    }
+  };
 
   return (
     <View className='bg-primary flex-1'>
@@ -37,8 +72,17 @@ const MovieDetails = () => {
           />
         </View>
         <View className='flex-col items-start justify-center mt-5 px-5'>
-          <Text className='text-white font-bold text-xl'>{movie?.title}</Text>
-
+          <View className='w-full flex-row justify-between items-center'>
+            <Text className='text-white font-bold text-xl flex-1'>{movie?.title}</Text>
+            <TouchableOpacity onPress={handleSave} className='ml-4'>
+              <Image
+                source={icons.save}
+                //source={isSaved ? icons.check : icons.save}
+                className='w-6 h-6'
+                resizeMode='contain'
+              />
+            </TouchableOpacity>
+          </View>
           <View className='flex-row items-center gap-x-1 mt-2'>
             <Text className='text-light-200 text-sm'>{movie?.release_date?.split('-')[0]}</Text>
             <Text className='text-light-200 text-sm'>{movie?.runtime}m</Text>
