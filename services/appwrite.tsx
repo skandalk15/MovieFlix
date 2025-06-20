@@ -93,3 +93,23 @@ export const getSavedMovies = async (): Promise<SavedMovies[] | undefined> => {
   }
 };
 
+export const removeSavedMovie = async (movieId: number) => {
+  const result = await database.listDocuments(DATABASE_ID, SAVED_ID, [
+    Query.equal('movie_id', movieId)
+  ]);
+
+  if (result.documents.length > 0) {
+    const docId = result.documents[0].$id;
+    await database.deleteDocument(DATABASE_ID, SAVED_ID, docId);
+    return { status: 'removed' };
+  }
+  return { status: 'not_found' };
+};
+
+export const isMovieSaved = async (movieId: number) => {
+  const result = await database.listDocuments(DATABASE_ID, SAVED_ID, [
+    Query.equal('movie_id', movieId)
+  ]);
+  return result.documents.length > 0;
+};
+

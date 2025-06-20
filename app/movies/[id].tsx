@@ -1,10 +1,9 @@
 import { icons } from '@/constants/icons';
 import { fetchMovieDetails } from '@/services/api';
-import { saveMovie } from '@/services/appwrite';
+import { saveMovie, removeSavedMovie, isMovieSaved } from '@/services/appwrite';
 import useFetch from '@/services/useFetch';
 import { router, useLocalSearchParams } from 'expo-router';
-import Toast from 'react-native-toast-message';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { View, Text, StyleSheet, ScrollView, Image, TouchableOpacity } from 'react-native';
 
 interface MovieInfoProps {
@@ -26,34 +25,32 @@ const MovieDetails = () => {
   const { data: movie, loading } = useFetch(() => fetchMovieDetails(id as string));
   const [isSaved, setIsSaved] = useState(false);
 
-  const handleSave = async () => {
+  useEffect(() => {
+    const checkSavedStatus = async () => {
+      if (movie?.id) {
+        const exists = await isMovieSaved(movie.id);
+        setIsSaved(exists);
+      }
+    };
+    checkSavedStatus();
+  }, [movie]);
+
+  const handleSaveToggle = async () => {
     if (!movie)
       return;
     try {
-      const result = await saveMovie(movie);
-      if (result.status === 'already_saved') {
-        Toast.show({
-          type: 'info',
-          text1: 'Already saved ✅',
-        });
-        setIsSaved(true);
-      } else if (result.status === 'saved') {
-        Toast.show({
-          type: 'success',
-          text1: 'Movie saved 🎉',
-        });
-        setIsSaved(true);
+      if (isSaved) {
+        const res = await removeSavedMovie(movie.id);
+        if (res.status === 'removed') {
+          setIsSaved(false);
+        }
       } else {
-        Toast.show({
-          type: 'error',
-          text1: 'Error saving movie ❌',
-        });
+        const res = await saveMovie(movie);
+        if (res.status === 'saved' || res.status === 'already_saved') {
+          setIsSaved(true);
+        }
       }
     } catch (err) {
-      Toast.show({
-        type: 'error',
-        text1: 'An unexpected error occurred ❌',
-      });
       console.error(err);
     }
   };
@@ -74,10 +71,9 @@ const MovieDetails = () => {
         <View className='flex-col items-start justify-center mt-5 px-5'>
           <View className='w-full flex-row justify-between items-center'>
             <Text className='text-white font-bold text-xl flex-1'>{movie?.title}</Text>
-            <TouchableOpacity onPress={handleSave} className='ml-4'>
+            <TouchableOpacity onPress={handleSaveToggle} className='ml-4'>
               <Image
-                source={icons.save}
-                //source={isSaved ? icons.check : icons.save}
+                source={isSaved ? icons.saved : icons.save}
                 className='w-6 h-6'
                 resizeMode='contain'
               />
@@ -114,7 +110,6 @@ const MovieDetails = () => {
         <Image source={icons.arrow} className='size-5 mr-1 mt-0.5 rotate-180' tintColor='#fff' />
         <Text className='text-white font-semibold text-base'>Go Back</Text>
       </TouchableOpacity>
-
     </View>
   );
 }
